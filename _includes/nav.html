@@ -1,0 +1,131 @@
+<header id="sticky-header">
+    <div class="top-bar">
+        <p class="leftCol">Serving The Pee Dee Region In Northeast South Carolina</p>
+        <div class="rightCol">
+            <p>Call Us For A Free Consultation:</p>
+            <a href="tel:+1-843-479-2865"><img src="/assets/images/phoneIcon.svg" alt="callus" width="24" height="24"> 843-479-2865</a>
+        </div>
+    </div>
+    <nav class="desktop-nav">
+        <a href="/" aria-label="homepage">
+            <img class="logo" src="/assets/images/logo.svg" alt="Jennings Law | Douglas Jennings Law Firm, LLC" width="320" height="100">
+        </a>
+        <div class="links">
+          {% for link in site.data.desktop-menu.desktopmenu %}
+            {% assign is_active = false %}
+
+            {% if link.submenu[0] and link.url == nil %}
+              <div class="dropdown-container" onclick>
+                {% for submenulink in link.submenu %}
+                  {% if submenulink.url == page.url %}
+                    {% assign is_active = true %}
+                  {% endif %}
+                  {% for slideoutlink in submenulink.slideout %}
+                    {% if slideoutlink.url == page.url %}
+                      {% assign is_active = true %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                <p {% if is_active %}class="active"{% endif %}>{{ link.pagename }}</p>
+                <div class="dropdown {% if link.megamenu %}{{ link.megamenu }}{% endif %}">
+                  <div class="dropdown-inner-container">
+                    {% for submenulink in link.submenu %}
+                      {% if submenulink.slideout[0] %}
+                        <div class="link-list-hover" onclick="showMega(this)">
+                          {% if submenulink.url %}
+                            <a class="title-nav" href="{{ submenulink.url }}">
+                              {{ submenulink.pagename }}
+                            </a>
+                          {% else %}
+                            <p class="title-nav">{{ submenulink.pagename }}</p>
+                          {% endif %}
+                          <div class="linklist">
+                            {% for slideoutlink in submenulink.slideout %}
+                              <a href="{{ slideoutlink.url }}" 
+                                {% if slideoutlink.url == page.url %}class="active"{% endif %}>
+                                {{ slideoutlink.pagename }}
+                              </a>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      {% else %}
+                        {% if submenulink.url %}
+                          <a href="{{ submenulink.url }}" 
+                            {% if submenulink.url == page.url %}class="active"{% endif %}>
+                            {{ submenulink.pagename }}
+                          </a>
+                        {% else %}
+                          <p>{{ submenulink.pagename }}</p>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+            {% elsif link.submenu[0] %}
+              <div class="dropdown-container" onclick>
+                {% assign is_active = false %}
+                {% for submenulink in link.submenu %}
+                  {% if submenulink.url == page.url %}
+                    {% assign is_active = true %}
+                  {% endif %}
+                {% endfor %}
+
+                <a href="{{ link.url }}" 
+                  {% if link.url == page.url or is_active %}class="active"{% endif %}>
+                  {{ link.pagename }}
+                </a>
+
+                <div class="dropdown">
+                  {% for submenulink in link.submenu %}
+                    {% if submenulink.url == page.url %}
+                      {% assign is_active = true %}
+                    {% endif %}
+                    {% if submenulink.slideout[0] %}
+                      <div class="link-list-hover" onclick="showMega(this)">
+                        {% if submenulink.url %}
+                          <a class="title-nav" href="{{ submenulink.url }}">
+                            {{ submenulink.pagename }}
+                          </a>
+                        {% else %}
+                          <p class="title-nav">{{ submenulink.pagename }}</p>
+                        {% endif %}
+                        <div class="linklist">
+                          {% for slideoutlink in submenulink.slideout %}
+                            <a href="{{ slideoutlink.url }}" 
+                              {% if slideoutlink.url == page.url %}class="active"{% endif %}>
+                              {{ slideoutlink.pagename }}
+                            </a>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {% else %}
+                      {% if submenulink.url %}
+                        <a href="{{ submenulink.url }}" 
+                          {% if submenulink.url == page.url %}class="active"{% endif %}>
+                          {{ submenulink.pagename }}
+                        </a>
+                      {% else %}
+                        <p>{{ submenulink.pagename }}</p>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+
+            {% else %}
+              {% if link.url == "/contact/" %}
+                <a href="{{ link.url }}" class="button white-btn">
+                  {{ link.pagename }}
+                </a>
+              {% else %}
+                <a href="{{ link.url }}" {% if link.url == page.url %}class="active"{% endif %}>
+                  {{ link.pagename }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+    </nav>
+</header>

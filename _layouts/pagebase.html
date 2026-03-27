@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		{% include header-meta-include.html %}
+		{% include header-sitewide-schema.html %}
+		{% include global-css-includes.html %}
+  </head>
+  <body {% if page.bodyClass != null %}class="{{ page.bodyClass }}"{% endif %}>
+		{% include nav.html %}
+		<nav class="mobile-header" id="mobileheader">{% include mobilenav.html %}</nav>
+
+		{% unless page.url contains '/contact/' %}
+		  	<div class="titlebar{% if page.url == '/verdicts-and-settlements' or page.url == '/verdicts-and-settlements/' %} verdicts-titlebar{% endif %}{% if page.url == '/firm-overview' or page.url == '/firm-overview/' %} firmoverview-titlebar{% endif %}">
+			  	{% include titlebar.html %}
+				</div>
+		{% endunless %}
+
+		<div class="page-content-container">
+			{{ content }}
+		</div>
+
+		<footer>{% include footer.html %}</footer>
+  </body>
+</html>

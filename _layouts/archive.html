@@ -1,0 +1,31 @@
+<!-- ---
+layout: postbase
+sitemap: false
+titletag: Blog Archive
+description: Blog archive
+archivePage: true
+robots: noindex, follow
+---
+
+{% assign date_parts = page.period | split: "-" %}
+{% assign year = date_parts[0] %}
+{% assign month_number = date_parts[1] | plus: 0 | minus: 1 %}
+{% assign months = 'January February March April May June July August September October November December' | split: ' ' %}
+{% assign month_name = months[month_number] %}
+
+{% if date_parts.size == 1 %}
+  <h2 class="page-title"><b>{{ year }} Articles</b></h2>
+{% elsif date_parts.size == 2 %}
+  <h2 class="page-title"><b>{{ month_name }} {{ year }} Articles</b></h2>
+{% endif %}
+
+
+{% for post in page.posts reversed %}
+  {% assign today_date = 'now' | date: "%Y-%m-%d" %}
+  {% assign post_date = post.date | date: "%Y-%m-%d" %}
+    {% if post_date <= today_date %}
+{% include blog-post.html %}
+{% endif %}
+{% endfor %}
+
+{% include show-more-posts.html %}

@@ -1,0 +1,30 @@
+<script>
+	var postArray = Array.from(document.querySelectorAll('article'));
+	var postHideNumber = 7;
+	for (var i in postArray) {
+			if (i > 7) {
+					postArray[i].setAttribute('style', 'display:none;');
+				}
+		}
+	var shownArticleCount = postArray.filter(function(article) {
+			return article.style.display !== 'none';
+		}).length;
+	if (shownArticleCount < 5 || shownArticleCount === postArray.length) {
+			document.querySelector('.showPostsButton').style.display = 'none';
+		}
+	document.querySelector('.main-content-container').insertAdjacentHTML('beforeend', '<div class="showPostsButton button mt-1" onclick="showPosts();"><span>More Posts</span></div>');
+	function showPosts() {
+			postHideNumber = postHideNumber + 7;
+			for (var i in postArray) {
+					if (i < postHideNumber) {
+							postArray[i].setAttribute('style', 'display:block;');
+						}
+				}
+			var updatedShownArticleCount = postArray.filter(function(article) {
+					return article.style.display !== 'none';
+				}).length;
+			if (updatedShownArticleCount < 5 || updatedShownArticleCount === postArray.length) {
+					document.querySelector('.showPostsButton').style.display = 'none';
+				}
+		}
+</script>

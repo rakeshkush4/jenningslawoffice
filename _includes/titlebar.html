@@ -1,0 +1,40 @@
+{% if page.mainClass and page.mainClass == "disclaimer" %}
+  <picture>
+    <source media="(max-width: 767px)" srcset="/assets/images/titlebar-bg-sm.webp">
+    <img src="/assets/images/titlebar-bg.webp" alt="A smooth, dark blue background with subtle gradients and textures, creating a modern and clean aesthetic." class="parallaxbg" data-speed="-.1">
+  </picture>
+{% elsif page.titlebarImage %}
+  <picture>
+    <source media="(max-width: 767px)" srcset="{{ page.titlebarImage-m }} 767w" sizes="100vw">
+    <img src="{{ page.titlebarImage }}" alt="{{ page.titlebarImageAlt }}" class="parallaxbg" data-speed="-.1">
+  </picture>  
+{% else %}
+  <picture>
+    <source media="(max-width: 767px)" srcset="/assets/images/titlebar-sm.webp">
+    <img src="/assets/images/titlebar.webp" alt="Two people shake hands over a desk with a gavel and scales of justice, symbolizing a legal agreement or partnership." class="parallaxbg" data-speed="-.1">
+  </picture>
+{% endif %}
+
+<div class="info w-100">
+	{% if page.titlebar != null %}
+	 	<div class="title fadeIn activateOnScroll">{{ page.titlebar | markdownify }}</div>
+	{% elsif page.collection == "articles" or page.is_category %}
+	 	<p class="title fadeIn activateOnScroll">Articles</p>
+	{% else %}
+	 	<p class="title fadeIn activateOnScroll">{{ page.title }}</p>
+	{% endif %}
+	{% unless page.mainClass == "disclaimer" %}
+		<p class="fadeIn activateOnScroll">Our firm is dedicated to seeking justice for all of our clients. We understand the devastating impact these issues can have on you and your family, and you can trust that we will work tirelessly to protect your legal rights and interests.</p>	
+		<div class="btns w-100 fadeIn activateOnScroll">
+			<a class="button" href="/contact/"><span>Schedule Free Consultation</span></a>
+			{% unless page.url == '/attorneys/' %}
+		    <a class="button white-btn" href="/attorneys/">Meet Your Attorneys</a>
+		  {% endunless %}
+		</div>
+	{% endunless %}	
+	{% if page.url == "/verdicts-and-settlements/" and page.bannerDiscla %}
+		<div class="disclaimer-text fadeIn activateOnScroll">
+			{{ page.bannerDiscla | markdownify }}
+		</div>
+	{% endif %}
+</div>

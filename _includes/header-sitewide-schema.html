@@ -1,0 +1,75 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Douglas Jennings Law Firm, LLC",
+    "image": "{{ site.url }}/assets/images/social-share.jpg",
+    "url": "{{ site.url }}",
+    "telephone": "843-479-2865",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "151 Broad Street",
+        "addressLocality": "Bennettsville",
+        "addressRegion": "SC",
+        "postalCode": "29512",
+        "addressCountry": "US"
+      }
+    ],
+    "geo": [
+      {
+        "@type": "GeoCoordinates",
+        "latitude": 34.6143209,
+        "longitude": -79.6827005
+      }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "opens": "08:30",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "08:30",
+        "closes": "12:00"
+      }
+    ]
+  }
+</script>
+
+{% if page.collection == "blogposts" %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    },
+    "headline": "{{ page.title }}",
+    "description": "{{ page.description }}",
+    "image": "{{ site.url }}/assets/images/social-share.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Douglas Jennings Law Firm, LLC"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Douglas Jennings Law Firm, LLC",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/social-share.jpg"
+      }
+    },
+    "datePublished": "{{ page.date }}"
+  }
+</script>
+{% endif %} {{ page.schema }}

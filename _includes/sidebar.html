@@ -1,0 +1,36 @@
+<p class="title1">Practice Areas</p>
+
+{% for link in site.data.sidebar-menu.sidebarmenu %}
+  {% if link.submenu and link.submenu[0] %}
+    <div class="dropdown-container open">
+      <div class="button-wrapper">
+        <a class="sidebartitle" href="{{ link.url }}">{{ link.pagename }}</a>
+        <span class="open-button" onclick="sidebar(this);" style="transform: rotateZ(45deg)">+</span>
+      </div>
+      <div class="dropdown" style="display: none;">
+        {% for submenulink in link.submenu %}
+          {% if submenulink.submenu and submenulink.submenu[0] %}
+            <div class="dropdown-container open">
+              <div class="button-wrapper">
+                <a class="title" href="{{ submenulink.url }}">{{ submenulink.pagename }}</a>
+                <span class="open-button" onclick="sidebar(this);" style="transform: rotateZ(45deg)">+</span>
+              </div>
+              <div class="dropdown" style="display: none;">
+                {% for subsubmenu in submenulink.submenu %}
+                  <a href="{{ subsubmenu.url }}">{{ subsubmenu.pagename }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% else %}
+            <a href="{{ submenulink.url }}">{{ submenulink.pagename }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <a href="{{ link.url }}">{{ link.pagename }}</a>
+  {% endif %}
+{% endfor %}
+
+
+<script src="/assets/js/sidenav.js"></script>

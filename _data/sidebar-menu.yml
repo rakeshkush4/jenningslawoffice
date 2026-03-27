@@ -1,0 +1,43 @@
+sidebarmenu:
+  - pagename: Personal Injury Overview
+    url: /personal-injury-overview/
+    submenu:
+      - pagename: Personal Injury FAQs
+        url: /personal-injury/
+  - pagename: Car Accidents
+    url: /personal-injury-overview/car-wrecks-auto-accidents/
+  - pagename: Tractor-Trailer Accidents
+    url: /personal-injury-overview/tractor-trailer-accidents/
+  - pagename: Wrongful Death
+    url: /personal-injury-overview/wrongful-death/ 
+  - pagename: Catastrophic Injuries
+    url: /personal-injury-overview/catastrophic-injuries/
+  - pagename: Defective Products
+    url: /personal-injury-overview/defective-products/ 
+  - pagename: Insurance Bad Faith
+    url: /insurance-bad-faith/
+  - pagename: Medical Malpractice
+    url: /medical-malpractice/ 
+  - pagename: Alcohol-Related Accidents
+    url: /personal-injury-overview/alcohol-related-accidents/
+  - pagename: Bicycle Accidents
+    url: /personal-injury-overview/bicycle-accident-attorney/
+  - pagename: Construction Accidents
+    url: /personal-injury-overview/construction-accidents/
+  - pagename: Distracted Driving Accidents
+    url: /personal-injury-overview/distracted-driving-accidents/
+  - pagename: Dog Bites
+    url: /personal-injury-overview/dog-bite-attorney/
+  - pagename: Lyft Accidents
+    url: /personal-injury-overview/lyft-accident-lawyer/
+  - pagename: Motorcycle Accidents
+    url: /personal-injury-overview/motorcycle-accident-lawyer/
+  - pagename: Pedestrian Accidents
+    url: /personal-injury-overview/pedestrian-accident-attorney/
+  - pagename: Special Needs Injury
+    url: /personal-injury-overview/injuries-mentally-ill-developmentally-delayed/
+  - pagename: Traumatic Brain Injury
+    url: /personal-injury-overview/traumatic-brain-injury-lawyer/
+  - pagename: Uber Accidents
+    url: /personal-injury-overview/uber-accident-lawyer/
+    

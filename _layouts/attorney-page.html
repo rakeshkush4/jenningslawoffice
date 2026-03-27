@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		{% include header-meta-include.html %}
+		{% include header-sitewide-schema.html %}
+		{% include global-css-includes.html %}
+  </head>
+  <body {% if page.bodyClass != null %}class="{{ page.bodyClass }}"{% endif %}>
+		{% include nav.html %}
+		<nav class="mobile-header" id="mobileheader">{% include mobilenav.html %}</nav>
+
+		<div class="titlebar">{% include titlebar.html %}</div>
+
+		<div class="page-content-container">
+				<main class="main-content-container full {% if page.mainClass %}{{ page.mainClass }}{% endif %}">
+					{% if page.url == '/attorney/jennings-douglas-jr/' %}
+					<section class="section-space meetattorney-sec jennings-sec">
+					    <div class="container-wrapper">
+					        <div class="leftattorney fadeUp activateOnScroll">
+					        		<div class="mobile-attorney">
+					        				<img src="{{ page.attorneyimage }}" alt="{{ page.title }}" />
+							            <div class="btns">
+							                <a class="button" href="/contact/">Schedule Free Consultation</a>
+							            </div>
+					        		</div>
+					            {{ page.attorneydescription | markdownify }}
+					        </div>
+					        <div class="rightattorney jennings-right">
+					        		<div class="desktop-attorney fadeUp activateOnScroll">
+						            <img src="{{ page.attorneyimage }}" alt="{{ page.title }}" />
+						            <div class="btns">
+						                <a class="button" href="/contact/">Schedule Free Consultation</a>
+						            </div>
+						          </div>
+					            <div class="educationinfo-wrap">
+						            {% for educationinfo in page.educationinfo %}
+						            <div class="box fadeUp activateOnScroll">
+						                <div class="box-item">
+						                    <h2 class="headthird small">{{ educationinfo.name }}</h2>
+						                    {{ educationinfo.description | markdownify }}
+						                </div>
+						            </div>
+						            {% endfor %}
+						          </div>
+					        </div>
+					    </div>
+					</section>
+					{% else %}
+					<section class="section-space meetattorney-sec">
+					    <div class="container-wrapper">
+					        <div class="leftattorney fadeUp activateOnScroll">
+					            {{ page.attorneydescription | markdownify }}
+					        </div>
+					        <div class="rightattorney fadeUp activateOnScroll">
+					            <img src="{{ page.attorneyimage }}" alt="{{ page.title }}" />
+					            <div class="btns">
+					                <a class="button" href="/contact/">Schedule Free Consultation</a>
+					            </div>
+					        </div>
+					    </div>
+					</section>
+					<section class="section-space attorneyeducation-sec">
+					    <div class="container-wrapper">
+					        <div class="wrapper box-wrapper">
+					            {% for educationinfo in page.educationinfo %}
+					            <div class="box fadeUp activateOnScroll">
+					                <div class="box-item">
+					                    <h2 class="headthird small">{{ educationinfo.name }}</h2>
+					                    {{ educationinfo.description | markdownify }}
+					                </div>
+					            </div>
+					            {% endfor %}
+					        </div>
+					    </div>
+					</section>
+					{% endif %}
+				</main>
+		</div>
+		<footer>{% include footer.html %}</footer>
+  </body>
+</html>

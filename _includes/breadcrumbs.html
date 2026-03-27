@@ -1,0 +1,31 @@
+<!----------------------------------
+
+Code for BreadCrumbs:
+
+Note the separator class at the end
+if you want to change that
+
+------------------------------------>
+{% unless page.url == "/404.html" %}
+<div class="breadcrumbs-container">
+    <ul class="breadcrumb-wrapper">
+        <li class="breadcrumb-item"><a href="/" class="cmlink">Home</a></li>
+        <li><span class="separator">—</span></li>
+        {%- assign segments = page.url | split: '/' | reject: '' -%}
+        {%- assign url = '' -%}
+        {%- for segment in segments -%}
+            {%- assign url = url | append: '/' | append: segment -%}
+            {%- unless url == '/' -%}
+                {%- if forloop.last -%}
+                    <li class="breadcrumb-item active" aria-current="page">{{ segment | replace: '-', ' ' | capitalize }}</li>
+                {%- else -%}
+                    <li class="breadcrumb-item">
+                        <a href="{{ url }}/" class="cmlink">{{ segment | replace: '-', ' ' | capitalize }}</a>
+                    </li>
+                    <li><span class="separator">—</span></li>
+                {%- endif -%}
+            {%- endunless -%}
+        {%- endfor -%}
+    </ul>
+</div>
+{% endunless %}

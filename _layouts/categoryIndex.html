@@ -1,0 +1,23 @@
+---
+title: Categories
+layout: postbase
+sitemap: false
+titletag: Categories
+description: Articles category
+is_category: true
+---
+
+{% assign category = page.title %}
+
+<section class="small-intro">
+  <div class="container">
+    <h1 style="text-transform: capitalize;">
+      Articles Category | {{category | capitalize}}
+    </h1>
+  </div>
+</section>
+	{% for post in page.items reversed %}
+	    {% include blog-post.html %}
+	{% endfor %}
+
+{% include show-more-posts.html %}

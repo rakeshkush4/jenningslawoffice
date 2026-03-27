@@ -1,0 +1,35 @@
+{% if post and post.title and post.url %}
+ <article class="articles-box fadeUp activateOnScroll">
+   <div class="post-meta">
+     {% assign category_links = "" | split: "" %}
+     {% for category in post.categories %}
+     {% capture link %}<a href="/articles/category/{{ category | slugify }}/">{{ category }}</a>{% endcapture %}
+     {% assign category_links = category_links | push: link %}
+     {% endfor %}
+     {{ category_links | join: ', ' }} 
+     {% if category_links != empty %}
+       <span>|</span>
+     {% endif %}
+     <p>{{ post.date | date: "%B %d, %Y" }}</p>
+   </div>
+   <h2>
+     {% if post.externallink %}
+       <a href="{{ post.externallink }}" target="_blank" rel="noopener">{{ post.title }}</a>
+     {% elsif post.downloadlink %}
+       <a href="{{ post.downloadlink }}" target="_blank" rel="noopener">{{ post.title }}</a>
+     {% else %}
+       <a href="{{ post.url }}">{{ post.title }}</a>
+     {% endif %}
+   </h2>
+  {% unless post.externallink or post.downloadlink %}
+    <p>{{ post.content | markdownify | strip_html | truncatewords: 50 }}</p> 
+  {% endunless %}
+   {% if post.externallink %}
+     <a class="button black-btn" href="{{ post.externallink }}" target="_blank" rel="noopener"><span>Learn More</span></a>
+   {% elsif post.downloadlink %}
+     <a class="button black-btn" href="{{ post.downloadlink }}" target="_blank" rel="noopener"><span>Learn More</span></a>
+   {% else %}
+     <a class="button black-btn" href="{{ post.url }}"><span>Learn More</span></a>
+   {% endif %}
+ </article>
+ {% endif %}

@@ -1,0 +1,26 @@
+footermenu:
+  - pagename: Home
+    url: /
+
+  - pagename: Firm Overview
+    url: /firm-overview/
+
+  - pagename: Attorneys
+    url: /attorneys/
+
+  - pagename: Practice Areas
+    url: /practice-area-overview/
+
+
+footermenu2:
+  - pagename: Articles
+    url: /articles/
+
+  - pagename: Verdicts/Settlements
+    url: /verdicts-and-settlements/
+
+  - pagename: Leave Us A Review
+    url: "https://search.google.com/local/writereview?placeid=ChIJXdXKLjsjVYgRU3EXi8zEPFQ"
+
+  - pagename: Contact Us
+    url: /contact/

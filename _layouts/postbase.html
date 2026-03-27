@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		{% include header-meta-include.html %}
+		{% include header-sitewide-schema.html %}
+		{% include global-css-includes.html %}
+  </head>
+  <body class="blog">
+		{% include nav.html %}
+		<nav class="mobile-header" id="mobileheader">{% include mobilenav.html %}</nav>
+
+		<div class="titlebar">{% include titlebar.html %}</div>
+
+		<div class="page-content-container">
+			<main class="main-content-container fadeUp activateOnScroll pa">
+				{{ content }}
+			</main>
+			<nav class="sidebar fadeUp activateOnScroll">{% include sidebar-blog.html %}</nav>
+		</div>
+
+		<footer>{% include footer.html %}</footer>
+  </body>
+</html>

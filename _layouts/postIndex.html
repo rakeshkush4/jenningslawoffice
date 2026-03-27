@@ -1,0 +1,9 @@
+---
+layout: postbase
+---
+
+{% for post in site.articles reversed %}
+	{% include blog-post.html %}
+{% endfor %}
+
+{% include show-more-posts.html %}

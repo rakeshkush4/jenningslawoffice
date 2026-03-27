@@ -1,0 +1,75 @@
+<script src="/assets/js/glide.min.js"></script>
+<script src="/assets/js/gsap.min.js" defer></script>
+<script src="/assets/js/mobilescripts.js" defer></script>
+<script src="/assets/js/gsap-animations.js" defer></script>
+<script src="/assets/js/lazysizes.min.js" defer></script>
+<script src="/assets/js/add-active-on-scroll.js" defer></script>
+<script src="/assets/js/sticky-nav.js" defer></script>
+
+<script>
+	let testimonialEl = document.getElementById('testimonialslider');
+	if (testimonialEl) {
+	    let glide = new Glide('#testimonialslider', {
+	        type: "carousel",
+	        startAt: 0,
+	        perView: 3,
+	        autoplay: 7000,
+	        animationDuration: 1000,
+	        focusAt: 0,
+	        gap: 0,
+	        breakpoints: {
+	        	1500: {
+	                perView: 2.7,
+	            },
+	            1100: {
+	                perView: 2.5,
+	            },
+	            767: {
+	                perView: 1,
+	            	autoplay: 5000,
+	        		animationDuration: 500,
+	                perView: 1,
+					gap: 0,
+	                autoheight: true,
+	            }
+	        }
+	    });
+	    glide.mount();
+	}
+
+	// Smooth Back to top script ******************************
+	var scrollToTopBtn = document.querySelector(".backtotop");
+	var rootElement = document.documentElement;
+	function handleScroll() {
+		var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+		if ((rootElement.scrollTop / scrollTotal) > 0.15) {
+			scrollToTopBtn.classList.add("showBtn");
+		} else {
+			scrollToTopBtn.classList.remove("showBtn");
+		}
+	}
+	function scrollToTop() {
+		var startPosition = rootElement.scrollTop;
+		var duration = 1000;
+		var startTime = null;
+		function animation(currentTime) {
+			if (startTime === null) startTime = currentTime;
+			var timeElapsed = currentTime - startTime;
+			var run = ease(timeElapsed, startPosition, -startPosition, duration);
+			rootElement.scrollTop = run;
+			if (timeElapsed < duration) requestAnimationFrame(animation);
+		}
+		function ease(t, b, c, d) {
+			t /= d / 2;
+			if (t < 1) return c / 2 * t * t + b;
+			t--;
+			return -c / 2 * (t * (t - 2) - 1) + b;
+		}
+		requestAnimationFrame(animation);
+	}
+	scrollToTopBtn.addEventListener("click", scrollToTop);
+	document.addEventListener("scroll", handleScroll);
+</script>
+
+{% include google-analytics.html %}
+{% include additional-scripts.html %}

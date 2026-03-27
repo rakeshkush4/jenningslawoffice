@@ -1,0 +1,46 @@
+desktopmenu:
+  - pagename: Home
+    url: /
+
+  - pagename: Firm Overview
+    url: /firm-overview/
+
+  - pagename: Attorneys
+    url: /attorneys/
+    submenu:
+      - pagename: Douglas Jennings Jr.
+        url: /attorney/jennings-douglas-jr/            
+      - pagename: Mason William King
+        url: /attorney/king-mason-william/
+      - pagename: Hon. J. Michael Baxley
+        url: /attorney/hon-j-michael-baxley/
+
+  - pagename: Practice Areas
+    url: /practice-area-overview/
+    submenu:
+      - pagename: Personal Injury
+        url: /personal-injury-overview/
+      - pagename: Car Accidents
+        url: /personal-injury-overview/car-wrecks-auto-accidents/      
+      - pagename: Tractor-Trailer Accidents
+        url: /personal-injury-overview/tractor-trailer-accidents/
+      - pagename: Wrongful Death
+        url: /personal-injury-overview/wrongful-death/
+      - pagename: Catastrophic Injuries
+        url: /personal-injury-overview/catastrophic-injuries/
+      - pagename: Defective Products
+        url: /personal-injury-overview/defective-products/
+      - pagename: Insurance Bad Faith
+        url: /insurance-bad-faith/
+      - pagename: Medical Malpractice
+        url: /medical-malpractice/
+
+  - pagename: Articles
+    url: /articles/
+
+  - pagename: Verdicts/Settlements
+    url: /verdicts-and-settlements/
+
+  - pagename: Contact Us
+    url: /contact/
+    class: button white-btn

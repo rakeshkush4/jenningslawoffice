@@ -1,0 +1,38 @@
+<p class="title1 bloghead">Categories</p>
+
+{%- comment -%}
+### THIS IS THE CODE FOR THE BLOG CATEGORIES
+{%- endcomment -%}
+
+{% assign articles_categories = "" | split: "" %}
+
+{% for post in site.articles %}
+  {% assign post_categories = post.category | default: post.categories %}
+  {% for category in post_categories %}
+    {% unless articles_categories contains category %}
+      {% assign articles_categories = articles_categories | push: category %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+
+{% assign articles_categories = articles_categories | sort %}
+
+{% for category in articles_categories %}
+  {% assign category_slug = category | downcase | strip | replace: ' ', '-' | replace_regex: '[^\w-]', '' %}
+  {% assign category_url = site.category_pages | where: "collection", "blogposts" | where: "category", category | first %}
+    <a href="/articles/category/{{ category | slugify }}/">{{ category }}</a>
+{% endfor %}
+
+<p class="title1 bloghead mt-2">Recent Articles</p>
+<div class="article-lists">
+  {% assign reversedposts = site.articles | reverse | remove_future %}
+  {% for post in reversedposts limit: 8 %}
+      {% if post.externallink %}
+        <a href="{{ post.externallink }}" target="_blank" rel="noopener">{{ post.title }}</a>
+      {% elsif post.downloadlink %}
+        <a href="{{ post.downloadlink }}" target="_blank" rel="noopener">{{ post.title }}</a>
+      {% else %}
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      {% endif %}
+  {% endfor %}
+</div>

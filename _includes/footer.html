@@ -1,0 +1,77 @@
+{% unless page.mainClass == "disclaimer" %}
+    <div class="tellUs section-space primarybg text-center">
+        <div class="container-wrapper fadeUp activateOnScroll white-txt">
+            <h2>We are ready to fight for your rights. Call today to get started.</h2>
+            <p>If you’ve been injured in an accident, don’t navigate the legal system alone. Let Douglas Jennings Law Firm, LLC <br/> stand by your side. We are ready to fight for your rights. Call today to get started.</p>
+            <a class="button white-btn m-auto mt-1" href="/contact/">Tell Us About Your Case</a>
+        </div>
+    </div>
+{% endunless %}
+<div class="container-wrapper">
+    <div class="top">
+        <div class="column one">
+            <a href="/" aria-label="homepage">
+                <img class="footerLogo lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/images/footer-logo.svg" alt="Jennings Law | Douglas Jennings Law Firm, LLC" width="405" height="128">
+            </a>  
+            <p>At Douglas Jennings Law Firm, LLC, we stand up for those who have been harmed by negligence, recklessness, or wrongdoing. For over 40 years, our team has been fighting for injury victims across Williamsburg, Horry, Florence, Marlboro, Darlington, Dillon, Chesterfield, Lee, Clarendon, Kershaw, and Marion Counties—securing justice, compensation, and peace of mind.</p>
+        </div>
+        <div class="column two">
+            <p class="title">Contact Us Today</p>
+            <div class="contactDetail">
+                <div class="address">
+                    <p>Bennettsville Office</p>
+                    <p><a href="https://maps.app.goo.gl/iVTsiQ4xhcEQMqMX9" rel="noopener" target="_blank"> P.O. Drawer 995 <br/>151 Broad Street <br/>Bennettsville, SC 29512</a></p>
+                    <p><a href="https://maps.app.goo.gl/iVTsiQ4xhcEQMqMX9" rel="noopener" target="_blank">Get Directions »</a></p>
+                    <p class="phoneNumber">Local: <a href="tel:+1-843-479-2865"> 843-479-2865</a></p>
+                </div>
+                <div class="address">
+                    <p> Charleston Office</p>
+                    <p><a href="https://maps.app.goo.gl/vEYV2xZdQJakRhPF8" rel="noopener" target="_blank"> 225 Seven Farms Drive <br/>Suite 202 <br/> Charleston, SC 29492</a></p>
+                    <p><a href="https://maps.app.goo.gl/vEYV2xZdQJakRhPF8" rel="noopener" target="_blank">Get Directions »</a></p>
+                    <p class="phoneNumber">Local: <a href="tel:+1-843-408-0070">843-408-0070</a></p>
+                </div>
+            </div>            
+        </div>
+        <div class="column three">
+            <p class="title">Quick Links</p>
+            <div class="footerMenu">
+                <ul>
+                    {% for link in site.data.footer-menu.footermenu %}
+                    <li {% if link.url == page.url %} class="active"{% endif %}>
+                        <a href="{{ link.url }}">{{ link.pagename }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <ul>
+                  {% for link in site.data.footer-menu.footermenu2 %}
+                    <li {% if link.url == page.url %} class="active"{% endif %}>
+                      <a href="{{ link.url }}"
+                         {% if link.pagename == "Leave Us A Review" %}
+                           target="_blank" rel="noopener"
+                         {% endif %}>
+                         {{ link.pagename }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>            
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="container-wrapper">
+        <div class="content text-center w-100">
+            <p>© <span id="year"></span> <a href="/">Douglas Jennings Law Firm, LLC</a> </p> <span>•</span> <p> All Rights Reserved </p> <span>•</span> <a href="{% link _pages/disclaimer.md %}">Disclaimer</a> <span>•</span> <a href="{% link _pages/privacy-policy.md %}">Privacy Policy</a> <span>•</span> <a href="{% link _pages/accessibility-statement.md %}">Accessibility Statement</a> <span>•</span> <a href="https://www.fuelwebmarketing.com/" style="text-decoration: none" target="_blank" rel="noopener">
+                Lawyer Marketing Services by <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="/assets/images/fuel-logo-light.png" alt="Fuel Web Marketing" class="lazyload">
+            </a>            
+        </div>
+    </div>
+    <div class="backtotop"></div>
+</div>
+<script>
+    var d = new Date();
+    var n = d.getFullYear();
+    document.getElementById("year").innerHTML = n;
+</script>
+
+{% include global-scripts.html %}

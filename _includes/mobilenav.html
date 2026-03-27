@@ -1,0 +1,71 @@
+<nav class="mobile-nav">
+    <a class="mobile-logo" href="/">
+        <img class="logo" src="/assets/images/logo.svg" alt="Jennings Law | Douglas Jennings Law Firm, LLC" width="320" height="100">
+    </a>
+    <div class="pull-right">
+        <a href="tel:+1-843-479-2865" aria-label="call us today">
+            <img src="/assets/images/phoneIcon.svg" alt="callus" width="24" height="24">
+        </a>
+        <div onclick="mobileNav()" class="mobile-nav-btn">
+            <div class="nav-dot" style="opacity: 1"></div>
+            <div class="nav-dot two" style="opacity: 1"></div>
+            <div class="nav-dot three" style="opacity: 1"></div>
+            <div class="mobile-dotnav-close">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-nav-screen" onclick="bodyFunctions()" style="display: none"></div>
+    <div class="mobile-nav" style="right: -220vw">
+        {% for link in site.data.mobile-menu.mobilemenu %}
+        {% if link.submenu[0] %}
+        <div class="dropdown-container">
+            <div class="open-mobile-nav" onclick="mobilePracticeAreasOpen(this)">
+                <span class="dropdown-chev">+ </span>
+            </div>
+            {% if link.url %}
+            <a href="{{ link.url }}">{{ link.pagename }}</a>
+            {% else %}
+            <p>{{ link.pagename }}</p>
+            {% endif %}
+            <div class="dropdown" style="display: none">
+                {% for submenulink in link.submenu %}
+                {% if submenulink.submenu[0] %}
+                <div class="dropdown-container">
+                    <div class="open-mobile-nav" onclick="mobilePracticeAreasOpen(this)">
+                        <span class="dropdown-chev">+ </span>
+                    </div>
+                    <a href="{{ submenulink.url }}">{{ submenulink.pagename }}</a>
+                    <div class="dropdown two" style="display: none">
+                        {% for dropdowntwo in submenulink.submenu %}
+                        {% if dropdowntwo.submenu[0] %}
+                        <div class="dropdown-container">
+                            <div class="open-mobile-nav" onclick="mobilePracticeAreasOpen(this)">
+                                <span class="dropdown-chev">+ </span>
+                            </div>
+                            <a href="{{ dropdowntwo.url }}">{{ dropdowntwo.pagename }}</a>
+                            <div class="dropdown three" style="display: none">
+                                {% for dropdownthree in dropdowntwo.submenu %}
+                                <a href="{{ dropdownthree.url }}">{{ dropdownthree.pagename }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <a href="{{ dropdowntwo.url }}">{{ dropdowntwo.pagename }}</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <a href="{{ submenulink.url }}">{{ submenulink.pagename }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <a href="{{ link.url }}">{{ link.pagename }}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</nav>

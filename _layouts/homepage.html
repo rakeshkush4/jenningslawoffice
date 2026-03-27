@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include header-meta-include.html %}
+    {% include header-sitewide-schema.html %}
+    {% include global-css-includes.html %} 
+    <!-- THIS TO TO PRELOAD THE MOBILE IMAGE -->
+    <link rel="preload" as="image" href="/assets/images/mobile-banner-img.webp" type="image/webp" fetchpriority="high">
+  </head>
+  <body class="homepage">
+    {% include nav.html %}
+    <nav class="mobile-header" id="mobileheader">{% include mobilenav.html %}</nav>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      {% include footer.html %}
+    </footer>
+  </body>
+</html>

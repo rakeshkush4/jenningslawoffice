@@ -1,0 +1,18 @@
+---
+layout: postbase
+---
+
+<div class="post-meta"> 
+  {% assign category_links = "" | split: "" %}
+    {% for category in page.categories %}
+    {% capture link %}<a href="/articles/category/{{ category | slugify }}/">{{ category }}</a>{% endcapture %}
+    {% assign category_links = category_links | push: link %}
+    {% endfor %}
+    {{ category_links | join: ',&nbsp;' }} 
+    {% if category_links != empty %}
+      <span>|</span>
+    {% endif %}
+    <p>{{ page.date | date: "%B %d, %Y" }}</p>
+</div>
+<h1>{{ page.title }}</h1>
+{{ content }}
