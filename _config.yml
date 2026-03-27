@@ -1,0 +1,117 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+url: "https://www.jenningslawoffice.com" # LEAVE END / OFF -- the base hostname & protocol for your site, e.g. http://example.com
+
+# Sets the Website Permalink ALSO NEED TO UPDATE PAGES COLLECTION
+permalink: /:title/ # Use :output_ext for HTML pages
+
+# Blocks future dated posts from being published early
+future: false
+
+# Sets the pages collection permalinks should match website permalink
+collections:
+  pages:
+    output: true
+    permalink: /:path/ # Use :output_ext for HTML pages
+  pageshtml:
+    output: true
+    permalink: /:path/ # Use :output_ext for HTML pages  
+  attorneys:
+    output: true
+    permalink: /attorney/:path/ # Use :output_ext for HTML pages
+  articles:
+    output: true
+    permalink: /articles/:path/ # Use :output_ext for HTML pages  
+
+sass:
+  sass_dir: assets/css
+  style: compressed 
+
+# collections_with_archives:
+#   - name: blogposts
+#     layout: archive
+#     archive_type:
+#       - monthly
+#       - yearly
+#     monthly_archive_slug: "/blog/:year/:month/"
+#     yearly_archive_slug: "/blog/:year/"
+
+
+# Collection Category Info here
+category_pages:
+  - collection: articles
+    url_structure: "/articles/category/:category/"
+    layout: categoryIndex
+    seo_title: "Articles Category: :category"
+    seo_description: "Read our latest blog posts about :category."
+
+
+# Creates Default Frontmatter
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      titletag: "Need to add titletag: to page"
+      description: "Need to add description: to page"
+      category: "need to add category: to page"
+      h1Headline: "need to add h1Headline: to page"
+      titlebar: "Need to add titlebar text"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+      titletag: "Need to add titletag: to page"
+      description: "Need to add description: to page"
+      titlebartext: "Need to add titlebartext: to page"
+
+
+# jekyll-minifier:
+#   uglifier_args:
+#     harmony: true
+#   exclude: ['.htaccess', 'robots.txt']
+
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - *_page-template.md
+#   - _posts/*_post-template.md
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

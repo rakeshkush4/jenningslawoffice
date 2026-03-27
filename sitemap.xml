@@ -1,0 +1,41 @@
+---
+layout: null
+search: exclude
+regenerate: true
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {%- for page in site.pages -%}
+    {%- if page.sitemap != false -%}
+      <url>
+        <loc>{{site.url}}{{page.url}}</loc>
+        <lastmod>{{site.time | date: '%Y-%m-%d' }}</lastmod>
+      </url>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- for page in site.pageshtml -%}
+    {%- if page.sitemap != false -%}
+      <url>
+        <loc>{{site.url}}{{page.url}}</loc>
+        <lastmod>{{site.time | date: '%Y-%m-%d' }}</lastmod>
+      </url>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- for page in site.attorneys -%}
+    {%- if page.sitemap != false -%}
+      <url>
+        <loc>{{site.url}}{{page.url}}</loc>
+        <lastmod>{{site.time | date: '%Y-%m-%d' }}</lastmod>
+      </url>
+    {%- endif -%}
+    {%- endfor -%}
+   {%- for post in site.articles -%}
+   {%- if post.sitemap != false and post.date <= site.time -%}
+     <url>
+        <loc>{{site.url}}{{post.url}}</loc>
+        <lastmod>{{post.date | date: '%Y-%m-%d' }}</lastmod>
+     </url>
+   {%- endif -%}
+   {%- endfor -%}
+</urlset>

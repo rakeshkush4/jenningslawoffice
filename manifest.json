@@ -1,0 +1,45 @@
+{
+    "name": "Douglas Jennings Law Firm, LLC",
+    "description": "Douglas Jennings Law Firm, LLC, of Bennettsville, SC, for serious personal injury representation. Call us at 843-479-2865.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#002855",
+    "icons": [
+      {
+        "src": "/assets/images/maskable-icon/social-share.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/assets/images/maskable-icon/maskable_icon.png",
+        "sizes": "234x234",
+        "type": "image/png",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/assets/images/maskable-icon/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/assets/images/maskable-icon/android-chrome-256x256.png",
+        "sizes": "256x265",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/assets/images/maskable-icon/apple-touch-icon.png",
+        "sizes": "180x180",
+        "type": "image/png",
+        "purpose": "any"
+      }
+    ],
+    "splash_pages": null,
+    "prefer_related_applications": false,
+    "related_applications": [],
+    "dir": "ltr"
+  }
+  

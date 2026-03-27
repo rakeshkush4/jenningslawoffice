@@ -1,0 +1,10 @@
+{
+    "redirects": [
+      { "source": "/site-map/", "destination": "/sitemap.xml", "permanent": true },
+      { "source": "/Articles/4-Wrongful-Death-Trial-Ends-in-Settlement.pdf", "destination": "/wp-content/uploads/sites/1303201/2020/06/4-Wrongful-Death-Trial-Ends-in-Settlement.pdf", "permanent": true },
+      { "source": "/Articles/BusinessOfTheMonthForMay.pdf", "destination": "/wp-content/uploads/sites/1303201/2020/06/BusinessOfTheMonthForMay.pdf", "permanent": true },
+      { "source": "/articles/gasque/", "destination": "/articles/", "permanent": true }
+    ]
+}
+
+

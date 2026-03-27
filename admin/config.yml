@@ -1,0 +1,322 @@
+backend:
+  name: github
+  repo: Fuelweb/jenningslawoffice #content is getting uploaded before this is changed.
+  branch: main # Branch to update (optional; defaults to master)
+  base_url: https://protected-plains-93496.herokuapp.com
+  squash_merges: true
+media_folder: 'assets/images'
+logo_url: https://www.fuelwebmarketing.com/assets/images/fuelweb-nobg.png
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    folder: '_pages'
+    create: true
+    editor:
+      preview: false
+    summary: "{{title}}"
+    fields:
+      - { label: 'Title (used for default url and netlify display)', name: 'title', widget: 'string' , required: true } 
+      - { label: 'Draft: while on the page will not be published', name: 'draft', widget: 'boolean', default: false, required: false}
+      - { label: 'Layout', name: 'layout', widget: 'string', default: 'page' }
+      - { label: 'SEO Title Tag', name: 'titletag', widget: 'string' } 
+      - { label: 'SEO Description', name: 'description', widget: 'text' }
+      - { label: 'Permalink (optional: link is named automatically from the title field)', name: 'permalink', widget: 'string', required: false  }
+      - { label: 'Text for titlebar (h1 here!)', name: 'titlebar', widget: 'markdown', hint: 'Make sure to check if the h1 is in the titlebar or in the body. Take a look at the live site and inspect the page to see where the h1 is being put for practice area pages.' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Sitemap', name: 'sitemap', widget: 'boolean', default: true, required: false }
+      - { label: 'JSON Schema Markup', name: 'schema', widget: 'text', required: false }
+
+  - name: "uniquelayouts"
+    label: "Unique Layouts"
+    editor:
+      preview: false
+    files:
+      - label: 'Homepage'
+        name: 'homepage'
+        file: '_pageshtml/index.md'
+        fields: 
+          - { label: 'Title (used for default url and netlify display)', name: 'title', widget: 'string' , required: true } 
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'homepage' }
+          - { label: 'SEO Title Tag', name: 'titletag', widget: 'string' } 
+          - { label: 'SEO Description', name: 'description', widget: 'text' }
+          - { label: 'h1 Headline', name: 'h1Headline', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'text' }
+          - { label: 'Sitemap', name: 'sitemap', widget: 'boolean', default: true, required: false }
+          - { label: 'JSON Schema Markup', name: 'schema', widget: 'text', required: false }
+      - label: 'Contact Page'
+        name: 'contactpage'
+        file: '_pageshtml/contact.md'
+        fields: 
+          - { label: 'Title (used for default url and netlify display)', name: 'title', widget: 'string' , required: true } 
+          - { label: 'Layout', name: 'layout', widget: 'string', default: 'page-full' }
+          - { label: 'SEO Title Tag', name: 'titletag', widget: 'string' } 
+          - { label: 'SEO Description', name: 'description', widget: 'text' }
+          - { label: 'Permalink (optional: link is named automatically from the title field)', name: 'permalink', widget: 'string', required: false  }
+          - { label: 'h1 Headline', name: 'h1Headline', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'hidden' }
+          - { label: 'Sitemap', name: 'sitemap', widget: 'boolean', default: true, required: false }
+          - { label: 'JSON Schema Markup', name: 'schema', widget: 'text', required: false }
+      - label: "About Our Firm"
+        name: "firmoverviewpage"
+        file: "_pageshtml/firm-overview.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", required: true }
+          - { label: "SEO Title Tag", name: "titletag", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Permalink", name: "permalink", widget: "string" }
+          - { label: "Text for Titlebar (h1 here!)", name: "titlebar", widget: "markdown" }
+          - { label: 'Titlebar Image', name: 'titlebarImage', widget: 'image'}
+          - { label: 'Titlebar Image Alt', name: 'titlebarImageAlt', widget: 'string'}
+          - { label: 'Titlebar Mobile Image', name: 'titlebarImage-m', widget: 'image'}
+          - { label: "AboutFirm Info", name: "aboutFirm", widget: "markdown", required: true }
+          - { label: 'Firm Image', name: 'firmImage', widget: 'image'}
+          
+          - label: 'Accolade Logos'
+            name: 'testimonials'
+            widget: 'list'
+            fields:
+                - {label: 'Image', name: 'image', widget: 'image' , required: true }
+                - {label: 'Image Alt', name: 'alt', widget: 'string' , required: true }
+                - {label: 'URL', name: 'url', widget: 'string' , required: true }
+          - { label: "practiceareas Info", name: "practice_areas", widget: "markdown", required: true }
+          - label: 'Practicearea Box'
+            name: 'practiceAreaBox'
+            widget: 'list'
+            fields:
+                - {label: 'Heading', name: 'title', widget: 'string' , required: true }
+                - {label: 'Description', name: 'text', widget: 'text' , required: true }
+          - { label: "Why Choose Image", name: "whyChooseImage", widget: "image", required: true }
+          - { label: "Why Choose Info", name: "whyChoose", widget: "markdown", required: true }          
+          - { label: "Body", name: "body", widget: "hidden" }
+          - { label: "JSON Schema Markup", name: "schema", widget: "text", required: false }
+          - { label: "Sitemap", name: "sitemap", widget: "boolean", default: true, required: false }
+      - label: "Meet Your Attorneys Landing Page"
+        name: "attorneyspage"
+        file: "_pageshtml/attorneys.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", required: true }
+          - { label: "SEO Title Tag", name: "titletag", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Permalink", name: "permalink", widget: "string" }
+          - { label: "Text for Titlebar (h1 here!)", name: "titlebar", widget: "markdown" }
+          - { label: 'Titlebar Image', name: 'titlebarImage', widget: 'image'}
+          - { label: 'Titlebar Mobile Image', name: 'titlebarImage-m', widget: 'image'}      
+          - { label: "Attorneys Heading", name: "attorneyheading", widget: "markdown", required: true }
+          - { label: "Body", name: "body", widget: "hidden" }
+          - { label: "JSON Schema Markup", name: "schema", widget: "text", required: false }
+          - { label: "Sitemap", name: "sitemap", widget: "boolean", default: true, required: false }
+      - label: 'verdicts & settlements'
+        name: 'verdicts-and-settlements'
+        file: '_pageshtml/verdicts-and-settlements.md'
+        fields:
+          - { label: 'Title (used for default url and netlify display)', name: 'title', widget: 'string' , required: true } 
+          - { label: 'Layout', name: 'layout', widget: 'string', default: 'page-full' }
+          - { label: 'SEO Title Tag', name: 'titletag', widget: 'string' } 
+          - { label: 'SEO Description', name: 'description', widget: 'text' }
+          - { label: 'Permalink (optional: link is named automatically from the title field)', name: 'permalink', widget: 'string', required: false  }
+          - { label: 'Text for titlebar (H1 here!)', name: 'titlebar', widget: 'markdown' }
+          - { label: 'Disclaimer text', name: 'bannerDiscla', widget: 'markdown' }
+          - label: 'verdicts & settlements Sections'
+            name: 'sattlebox'
+            widget: 'list'
+            fields:
+                - {label: 'Heading', name: 'heading', widget: 'string' }
+                - {label: 'Info', name: 'paragraph', widget: 'markdown' }
+                - {label: 'URL', name: 'link', widget: 'string' , required: false }          
+          - { label: 'Body', name: 'body', widget: 'hidden' }
+          - { label: 'Sitemap', name: 'sitemap', widget: 'boolean', default: true, required: false }
+          - { label: 'JSON Schema Markup', name: 'schema', widget: 'text', required: false }
+  
+  - name: 'Attorneys'
+    label: 'Attorneys'
+    folder: '_attorneys'
+    create: true
+    editor:
+      preview: false
+    summary: "{{title}}"
+    fields:
+      - { label: 'Title (used for default url and netlify display)', name: 'title', widget: 'string' , required: true } 
+      - { label: 'Draft: while on the page will not be published', name: 'draft', widget: 'boolean', default: false, required: false}
+      - { label: 'Layout', name: 'layout', widget: 'string', default: 'attorney-page' }
+      - { label: 'SEO Title Tag', name: 'titletag', widget: 'string' } 
+      - { label: 'SEO Description', name: 'description', widget: 'text' }
+      - { label: 'Permalink (optional: link is named automatically from the title field)', name: 'permalink', widget: 'string', required: false  }
+      - { label: 'Text for titlebar (h1 here!)', name: 'titlebar', widget: 'markdown'}
+      - { label: 'Titlebar Image', name: 'titlebarImage', widget: 'image', default: '/assets/images/titlebar-bg.webp' }
+      - { label: 'Titlebar Image Alt', name: 'titlebarImageAlt', widget: 'string', default: 'A smooth, dark blue background with subtle gradients and textures, creating a modern and clean aesthetic.'}
+      - { label: 'Titlebar Mobile Image', name: 'titlebarImage-m', widget: 'image', default: '/assets/images/titlebar-bg-sm.webp' }
+      - { label: 'Attorney Image', name: 'attorneyimage', widget: 'image'}
+      - { label: "Attorneys Bio", name: "attorneydescription", widget: "markdown", required: true }
+      - { label: "Bio Snippet that shows on Attorneys landing page", name: "attorneySnippet", widget: "text", required: true }
+      - label: 'Attorneys Resume'
+        name: 'educationinfo'
+        widget: 'list'
+        hint: 'Areas of Practice, Litigation Percentage, Bar Admissions, Education, Professional Associations And Memberships, Past Employment Positions, Honors and Awards, Published Works, Pro Bono Activities'
+        fields:
+            - {label: 'Title', name: 'name', widget: 'string' , required: false }
+            - {label: 'Info', name: 'description', widget: 'markdown' , required: false}   
+      - { label: "Position on Page", name: "pagePosition", widget: "number", required: true, hint: 'Pick what order they show on the page (1-3)' }       
+      - { label: 'Body', name: 'body', widget: 'hidden' }
+      - { label: 'Sitemap', name: 'sitemap', widget: 'boolean', default: true, required: false }
+      - { label: 'JSON Schema Markup', name: 'schema', widget: 'text', required: false }
+
+  - name: 'articles'
+    label: 'Articles'
+    folder: '_articles'
+    create: true
+    editor:
+      preview: false
+    view_groups:
+      - { label: 'Year', field: 'date', pattern: '\d{4}' }
+      - { label: 'Categories', field: 'categories' }
+    summary: "{{date}} - {{title}}"
+    fields:
+      - { label: 'H1 and page Title (used for SEO and URL)', name: 'title', widget: 'string' , required: true }
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: 'Draft: while on the page will not be published', name: 'draft', widget: 'boolean', default: false, required: false}
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD', time_format: false }
+      - { label: 'SEO Title Tag', name: 'titletag', widget: 'string' }
+      - { label: 'SEO Description', name: 'description', widget: 'text' }
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'select'
+        multiple: true
+        options:
+          - label: 'Personal Injury'
+            value: 'Personal Injury'
+          - label: 'Car Accidents'
+            value: 'Car Accidents'
+          - label: 'Truck Accidents'
+            value: 'Truck Accidents'
+          - label: 'Motorcycle Accidents'
+            value: 'Motorcycle Accidents'
+          - label: 'Wrongful Death'
+            value: 'Wrongful Death'
+          - label: 'Slip and Fall'
+            value: 'Slip and Fall'
+          - label: 'Tractor-Trailer Accidents'
+            value: 'Tractor-Trailer Accidents'
+          - label: 'Medical Malpractice'
+            value: 'Medical Malpractice'
+          - label: 'Uncategorized'
+            value: 'Uncategorized' 
+          - label: 'Notable Events'
+            value: 'Notable Events'
+      - { label: 'Permalink', name: 'permalink', widget: 'string', required: false }
+      - { label: 'External Link', name: 'externallink', widget: 'string', required: false }
+      - { label: 'PDF URL', name: 'downloadlink', widget: 'string', required: false, default: '/assets/images/pdf-name.pdf' }
+      - { label: 'Body * No H1 *', name: 'body', widget: 'markdown', required: false, hint: 'no body text needed for external links or PDFs. Just be sure to make them noindex, nofollow and sitemap: false' }
+      - { label: 'Robots', name: 'robots', widget: 'string', default: 'Index, Follow', hint: 'For PDFs or external links make noindex, nofollow' }
+      - { label: 'Sitemap', name: 'sitemap', widget: 'boolean', default: true, required: true, hint: 'For PDFs or external links make sitemap false'  }
+      - { label: 'JSON Schema Markup', name: 'schema', widget: 'text', required: false }
+  - name: 'config'
+    label: 'Config Nav Menus'
+    editor:
+      preview: false
+    files:
+      - label: 'Side Navigation'
+        name: 'sidenav'
+        file: '_data/sidebar-menu.yml'
+        fields:
+          - label: 'Menu Items'
+            name: 'sidebarmenu' 
+            widget: 'list'
+            fields:
+              - { label: Name, name: pagename, widget: string }
+              - { label: Link, name: url, widget: string, required: false }
+              - label: 'Drop Down Items'
+                name: 'submenu'
+                widget: 'list'
+                required: false
+                fields:
+                    - {label: 'Name', name: 'pagename', widget: string }
+                    - {label: 'Link', name: 'url', widget: string }
+                    - label: 'Drop Down Items'
+                      name: 'submenu'
+                      widget: 'list'
+                      required: false
+                      fields:
+                          - {label: 'Name', name: 'pagename', widget: string }
+                          - {label: 'Link', name: 'url', widget: string }
+      - label: 'Desktop Menu'
+        name: 'desktopmenu'
+        file: '_data/desktop-menu.yml'
+        fields:
+          - label: 'Menu Items'
+            name: 'desktopmenu' 
+            widget: 'list'
+            fields:
+              - { label: Name, name: pagename, widget: string }
+              - { label: Link, name: url, widget: string, required: false }
+              - label: 'Drop Down Items'
+                name: 'submenu'
+                widget: 'list'
+                required: false
+                fields:
+                    - {label: 'Name', name: 'pagename', widget: string }
+                    - {label: 'Link', name: 'url', widget: string }
+                    - label: 'Drop Down Items'
+                      name: 'slideout'
+                      widget: 'list'
+                      required: false
+                      fields:
+                          - {label: 'Name', name: 'pagename', widget: string }
+                          - {label: 'Link', name: 'url', widget: string }
+      - label: 'Mobile Menu'
+        name: 'mobilemenu'
+        file: '_data/mobile-menu.yml'
+        fields:
+          - label: 'Menu Items'
+            name: 'mobilemenu' 
+            widget: 'list'
+            fields:
+              - { label: Name, name: pagename, widget: string }
+              - { label: Link, name: url, widget: string, required: false }
+              - label: 'Drop Down Items'
+                name: 'submenu'
+                widget: 'list'
+                required: false
+                fields:
+                    - {label: 'Name', name: 'pagename', widget: string }
+                    - {label: 'Link', name: 'url', widget: string }
+                    - label: 'Drop Down Items'
+                      name: 'submenu'
+                      widget: 'list'
+                      required: false
+                      fields:
+                          - {label: 'Name', name: 'pagename', widget: string }
+                          - {label: 'Link', name: 'url', widget: string }
+                          - label: 'Drop Down Items'
+                            name: 'submenu'
+                            widget: 'list'
+                            required: false
+                            fields:
+                                - {label: 'Name', name: 'pagename', widget: string }
+                                - {label: 'Link', name: 'url', widget: string }
+
+  - name: "seosettings"
+    label: "SEO Settings"
+    editor:
+      preview: false
+    files:
+      - label: 'Header Schemas'
+        name: 'headerschema'
+        file: '_includes/header-sitewide-schema.html'
+        fields: 
+          - label: 'Schemas'
+            name: 'body'
+            widget: 'text'
+      - label: 'Google Analytics'
+        name: 'googleanalytics'
+        file: '_includes/google-analytics.html'
+        fields: 
+          - label: 'Analytics Code'
+            name: 'body'
+            widget: 'text'
+      - label: 'Additional Scripts'
+        name: 'additionalscripts'
+        file: '_includes/additional-scripts.html'
+        fields: 
+          - label: 'Additional Scripts'
+            name: 'body'
+            widget: 'text'
